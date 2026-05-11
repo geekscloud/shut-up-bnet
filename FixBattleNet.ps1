@@ -16,7 +16,7 @@ foreach ($file in $configFiles) {
         $json = $rawContent | ConvertFrom-Json -ErrorAction SilentlyContinue
 
         # 2. 关键过滤逻辑：只有包含 User.Client.Favorites 的才是我们要找的账号配置文件
-        if ($null -ne $json.User.Client.Favorites) {
+        if ($null -ne $json.User.Client) {
             Write-Host "检测到账号配置文件: $($file.Name)" -ForegroundColor Cyan
             
             # 注入或覆盖关键配置项
